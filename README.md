@@ -1,6 +1,6 @@
 # Stream JSON Demo
 
-You can see the [entire diff compared to a vanilla Rails 4.2.0 app](https://github.com/brianhempel/stream_json_demo/commit/6bd580ea9bf3b1d508bb1ce9e48834bf67e313df).
+You can see the [entire diff compared to a vanilla Rails 4.2.0 app](https://github.com/brianhempel/stream_json_demo/commit/6bd580ea9bf3b1d508bb1ce9e48834bf67e313df). The app is also running on Heroku at [http://stream-json-demo.herokuapp.com/random_numbers](http://stream-json-demo.herokuapp.com/random_numbers).
 
 The app lazily generates a million random numbers and streams json to the client at the `/random_numbers` endpoint:
 

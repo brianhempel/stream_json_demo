@@ -29,8 +29,7 @@ class RandomNumbersController < ApplicationController
     end
   end
 
-  # Note that chunked deflate seems not to work in curl. (Chunked plain JSON is fine.)
-  # Chunked deflate works in Chrome.
+  # Curl requires the --compressed flag for this response to load correctly.
   def stream_json_array(enum)
     headers["Content-Disposition"] = "attachment" # Download response to file. It's big.
     headers["Content-Type"]        = "application/json"

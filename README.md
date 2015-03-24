@@ -2,6 +2,12 @@
 
 You can see the [entire diff compared to a vanilla Rails 4.2.0 app](https://github.com/brianhempel/stream_json_demo/commit/6bd580ea9bf3b1d508bb1ce9e48834bf67e313df). The app is also running on Heroku at [http://stream-json-demo.herokuapp.com/random_numbers](http://stream-json-demo.herokuapp.com/random_numbers).
 
+You can curl this demo with:
+
+```bash
+$ curl --compressed http://stream-json-demo.herokuapp.com/random_numbers
+```
+
 The app lazily generates a million random numbers and streams json to the client at the `/random_numbers` endpoint:
 
 ```http
@@ -66,8 +72,7 @@ class RandomNumbersController < ApplicationController
     end
   end
 
-  # Note that chunked deflate seems not to work in curl. (Chunked plain JSON is fine.)
-  # Chunked deflate works in Chrome.
+  # Curl requires the --compressed flag for this response to load correctly.
   def stream_json_array(enum)
     headers["Content-Disposition"] = "attachment" # Download response to file. It's big.
     headers["Content-Type"]        = "application/json"
